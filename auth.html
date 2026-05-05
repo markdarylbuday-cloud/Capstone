@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EBENEZER - Login / Register</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f5f5f5;
+    }
+
+    header {
+        background: #0d3b66;
+        color: #ffd60a;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+    }
+
+    .box {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+        text-align: center;
+        color: #0d3b66;
+    }
+
+    input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;   
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background: #ffd60a;
+        color: #0d3b66;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+
+    button:hover {
+        background: #0d3b66;
+        color: #ffd60a;
+    }
+
+    .switch {
+        text-align: center;
+        margin-top: 10px;
+        cursor: pointer;
+        color: #0d3b66;
+        font-size: 14px;
+    }
+
+    .hidden {
+        display: none;
+    }
+    label {
+    font-size: 14px;
+    color: #0d3b66;
+    display: block;
+    margin-top: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>EBENEZER Authentication</h1>
+</header>
+
+<div class="container">
+
+    <!-- LOGIN BOX -->
+    <div class="box" id="loginBox">
+        <h2>Login</h2>
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+
+        <div class="switch" onclick="showRegister()">
+            No account? Register here
+        </div>
+    </div>
+
+    <!-- REGISTER BOX -->
+    <div class="box hidden" id="registerBox">
+        <h2>Register</h2>
+        <input type="text" placeholder="Username">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button onclick="register()">Register</button>
+
+        <div class="switch" onclick="showLogin()">
+            Already have an account? Login
+        </div>
+    </div>
+
+</div>
+
+<script>
+function showRegister() {
+    document.getElementById("loginBox").classList.add("hidden");
+    document.getElementById("registerBox").classList.remove("hidden");
+}
+
+function showLogin() {
+    document.getElementById("registerBox").classList.add("hidden");
+    document.getElementById("loginBox").classList.remove("hidden");
+}
+
+function login() {
+    alert("Login successful!");
+    window.location.href = "index2.html"; // next page
+}
+
+function register() {
+    alert("Registration successful!");
+    window.location.href = "index2.html"; // next page
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product Details - EBENEZER</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f9f9f9;
+    }
+
+    header {
+        background: #0d3b66;
+        color: #ffd60a;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 30px;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .image-section img {
+        width: 300px;
+        border-radius: 10px;
+    }
+
+    .details {
+        max-width: 400px;
+    }
+
+    .details h2 {
+        color: #0d3b66;
+    }
+
+    .price {
+        font-size: 22px;
+        font-weight: bold;
+        color: #0d3b66;
+        margin: 10px 0;
+    }
+
+    .stock {
+        color: green;
+        margin-bottom: 10px;
+    }
+
+    button {
+        background: #ffd60a;
+        color: #0d3b66;
+        border: none;
+        padding: 12px;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background: #0d3b66;
+        color: #ffd60a;
+    }
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>Product Details</h1>
+</header>
+
+<div class="container">
+    
+    <div class="image-section">
+        <img id="productImage">
+    </div>
+
+    <div class="details">
+        <h2 id="productName"></h2>
+        <p class="price" id="productPrice"></p>
+        <p id="productDescription"></p>
+        <p class="stock">In Stock</p>
+
+        <button onclick="addToCart()">Add to Cart</button>
+    </div>
+
+</div>
+
+<script>
+    const products = [
+    {
+        name: "iPhone 13",
+        price: "₱35",
+        description: "Latest Apple smartphone with advanced camera features.",
+        image: "images/iPhone13.jpg"
+    },
+    {
+        name: "Samsung Galaxy",
+        price: "₱30",
+        description: "High-performance Android smartphone.",
+        image: "images/Samsung.jpg"
+    },
+    {
+        name: "Dell Laptop",
+        price: "₱45",
+        description: "Powerful laptop for work and gaming.",
+        image: "images/Dell.jpg"
+    },
+    {
+        name: "Wireless Earbuds",
+        price: "₱2",
+        description: "Compact earbuds with high-quality sound.",
+        image: "images/earbuds.jpg"
+    }
+];
+
+// Try to get selected product
+let product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+// If no product selected, default to first product
+if (!product) {
+    product = products[0];
+}
+
+// Display product
+document.getElementById("productImage").src = product.image;
+document.getElementById("productName").innerText = product.name;
+document.getElementById("productPrice").innerText = product.price;
+document.getElementById("productDescription").innerText = product.description;
+
+function addToCart() {
+        alert("Please login to continue purchase.");
+        window.location.href = "auth.html";
+    }
+</script>
+
+</body>
+</html>

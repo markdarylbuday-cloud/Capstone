@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EBENEZER - Product Catalogue</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f9f9f9;
+    }
+
+    header {
+        background: #0d3b66;
+        color: #ffd60a;
+        padding: 15px;
+        text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+        margin: 20px;
+        color: #0d3b66;
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .product {
+        background: white;
+        border-radius: 12px;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+
+    .product:hover {
+        transform: scale(1.05);
+    }
+
+    .product img {
+        width: 70%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .product h3 {
+        margin: 10px 0 5px;
+        color: #0d3b66;
+    }
+
+    .product p {
+        font-size: 14px;
+        color: #555;
+    }
+
+    .price {
+        font-weight: bold;
+        color: #0d3b66;
+        margin: 5px 0;
+    }
+
+    .product button {
+        background: #ffd60a;
+        color: #0d3b66;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .product button:hover {
+        background: #0d3b66;
+        color: #ffd60a;
+    }
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>EBENEZER Product Catalogue</h1>
+</header>
+
+<h2>Available Gadgets</h2>
+
+<div class="product-grid" id="productList"></div>
+
+<script>
+const products = [
+    {
+        name: "iPhone 13",
+        price: "₱35",
+        description: "Latest Apple smartphone with advanced camera features.",
+        image: "images/iPhone13.jpg"
+    },
+    {
+        name: "Samsung Galaxy S21",
+        price: "₱30",
+        description: "High-performance Android smartphone.",
+        image: "images/Samsung.jpg"
+    },
+    {
+        name: "Dell Laptop",
+        price: "₱45",
+        description: "Powerful laptop for work and gaming.",
+        image: "images/Dell.jpg"
+    },
+    {
+        name: "Wireless Earbuds",
+        price: "₱2",
+        description: "Compact earbuds with high-quality sound.",
+        image: "images/earbuds.jpg"
+    }
+];
+
+const productList = document.getElementById("productList");
+
+products.forEach((product, index) => {
+    productList.innerHTML += `
+        <div class="product">
+            <img src="${product.image}">
+            <h3>${product.name}</h3>
+            <p class="price">${product.price}</p>
+            <p>${product.description}</p>
+            <button onclick="viewDetails(${index})">View Details</button>
+        </div>
+    `;
+});
+
+function viewDetails(index) {
+    alert("Redirecting to product details for: " + products[index].name);
+}
+
+function viewDetails(index) {
+    localStorage.setItem("selectedProduct", JSON.stringify(products[index]));
+    window.location.href = "product-details2.html";
+}
+</script>
+
+</body>
+</html>
